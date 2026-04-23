@@ -55,3 +55,32 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig("results/position_response.png", dpi=300)
 plt.show()
+
+# Effect of inertia
+J_values = [0.01, 0.02, 0.05]
+
+plt.figure(figsize=(10, 6))
+
+for J_value in J_values:
+    def motor_with_inertia(time, y):
+        i = y[0]
+        omega = y[1]
+        theta = y[2]
+
+        didt = (V - R * i - Ke * omega) / L
+        domegadt = (Kt * i - b * omega) / J_value
+        dthetadt = omega
+
+        return [didt, domegadt, dthetadt]
+
+    sol_J = solve_ivp(motor_with_inertia, [0, 5], [i0, omega0, theta0], t_eval=t)
+    plt.plot(sol_J.t, sol_J.y[1], label=f"J = {J_value}")
+
+plt.title("Effect of Inertia on Speed Response")
+plt.xlabel("Time")
+plt.ylabel("Angular Velocity")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.savefig("results/inertia_effect.png", dpi=300)
+plt.show()
