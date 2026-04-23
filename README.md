@@ -44,11 +44,12 @@ The goal of this project is to:
 - model a simple DC motor
 - simulate its speed response
 - simulate its position response
+- analyze the effect of inertia
 - understand the relation between electrical input and mechanical output
 
 ## Parameters
 
-The simulation uses:
+The base simulation uses:
 
 - `R = 2.0`
 - `L = 0.5`
@@ -64,16 +65,38 @@ Initial conditions:
 - `omega0 = 0.0`
 - `theta0 = 0.0`
 
-## Results
+## Simulations
 
-The simulation generates two outputs:
+### 1. Speed Response
 
-- speed response
-- position response
+The simulation plots the angular velocity of the motor over time.
 
 The speed starts from zero and gradually approaches a steady value.
 
-The position increases over time as the motor rotates.
+### 2. Position Response
+
+The simulation also plots the angular position of the motor.
+
+Since position is the integral of angular velocity, it increases over time as the motor rotates.
+
+### 3. Effect of Inertia
+
+The project compares different values of inertia:
+
+- `J = 0.01`
+- `J = 0.02`
+- `J = 0.05`
+
+This comparison shows that lower inertia gives a faster speed response, while higher inertia makes the motor respond more slowly.
+
+## Results
+
+This project shows important aspects of DC motor dynamics:
+
+- a constant voltage produces a time-varying current and speed response
+- angular velocity approaches a steady value
+- angular position increases continuously over time
+- inertia strongly affects how fast the motor accelerates
 
 ## Output
 
@@ -81,6 +104,7 @@ Saved figures:
 
 - `results/speed_response.png`
 - `results/position_response.png`
+- `results/inertia_effect.png`
 
 ## Run
 
