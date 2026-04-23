@@ -42,9 +42,9 @@ where:
 The goal of this project is to:
 
 - model a simple DC motor
-- simulate its speed response
-- simulate its position response
+- simulate current, speed, and position response
 - analyze the effect of inertia
+- analyze the effect of friction
 - understand the relation between electrical input and mechanical output
 
 ## Parameters
@@ -67,19 +67,25 @@ Initial conditions:
 
 ## Simulations
 
-### 1. Speed Response
+### 1. Current Response
+
+The simulation plots the armature current over time.
+
+This shows the electrical transient behavior of the motor.
+
+### 2. Speed Response
 
 The simulation plots the angular velocity of the motor over time.
 
 The speed starts from zero and gradually approaches a steady value.
 
-### 2. Position Response
+### 3. Position Response
 
 The simulation also plots the angular position of the motor.
 
 Since position is the integral of angular velocity, it increases over time as the motor rotates.
 
-### 3. Effect of Inertia
+### 4. Effect of Inertia
 
 The project compares different values of inertia:
 
@@ -89,22 +95,35 @@ The project compares different values of inertia:
 
 This comparison shows that lower inertia gives a faster speed response, while higher inertia makes the motor respond more slowly.
 
+### 5. Effect of Friction
+
+The project compares different values of friction:
+
+- `b = 0.05`
+- `b = 0.2`
+- `b = 0.5`
+
+This comparison shows that lower friction allows the motor to reach a higher speed, while higher friction reduces the response and steady-state speed.
+
 ## Results
 
 This project shows important aspects of DC motor dynamics:
 
-- a constant voltage produces a time-varying current and speed response
+- a constant voltage produces time-varying current and speed response
 - angular velocity approaches a steady value
 - angular position increases continuously over time
-- inertia strongly affects how fast the motor accelerates
+- inertia affects how fast the motor accelerates
+- friction affects both transient and steady-state behavior
 
 ## Output
 
 Saved figures:
 
+- `results/current_response.png`
 - `results/speed_response.png`
 - `results/position_response.png`
 - `results/inertia_effect.png`
+- `results/friction_effect.png`
 
 ## Run
 
