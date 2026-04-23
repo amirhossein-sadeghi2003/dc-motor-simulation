@@ -94,3 +94,32 @@ plt.legend()
 plt.tight_layout()
 plt.savefig("results/inertia_effect.png", dpi=300)
 plt.show()
+
+# Effect of friction
+b_values = [0.05, 0.2, 0.5]
+
+plt.figure(figsize=(10, 6))
+
+for b_value in b_values:
+    def motor_with_friction(time, y):
+        i = y[0]
+        omega = y[1]
+        theta = y[2]
+
+        didt = (V - R * i - Ke * omega) / L
+        domegadt = (Kt * i - b_value * omega) / J
+        dthetadt = omega
+
+        return [didt, domegadt, dthetadt]
+
+    sol_b = solve_ivp(motor_with_friction, [0, 5], [i0, omega0, theta0], t_eval=t)
+    plt.plot(sol_b.t, sol_b.y[1], label=f"b = {b_value}")
+
+plt.title("Effect of Friction on Speed Response")
+plt.xlabel("Time")
+plt.ylabel("Angular Velocity")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.savefig("results/friction_effect.png", dpi=300)
+plt.show()
