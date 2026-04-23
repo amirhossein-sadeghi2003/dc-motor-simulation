@@ -37,6 +37,16 @@ omega = sol.y[1]
 theta = sol.y[2]
 
 plt.figure(figsize=(10, 6))
+plt.plot(sol.t, current)
+plt.title("DC Motor Current Response")
+plt.xlabel("Time")
+plt.ylabel("Current")
+plt.grid(True)
+plt.tight_layout()
+plt.savefig("results/current_response.png", dpi=300)
+plt.show()
+
+plt.figure(figsize=(10, 6))
 plt.plot(sol.t, omega)
 plt.title("DC Motor Speed Response")
 plt.xlabel("Time")
