@@ -230,6 +230,19 @@ results/
 
 ## How to Run
 
+Create and activate a virtual environment:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
 Run the simulation from the project root:
 
 ```bash
