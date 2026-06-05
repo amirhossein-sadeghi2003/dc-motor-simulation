@@ -45,7 +45,7 @@ This project provides a foundation for later work in:
 - state estimation
 - Kalman filtering
 - sensor-based motor monitoring
-- intelligent physical systems
+- motor modeling for control and estimation
 
 It also connects directly to the related project:
 
@@ -150,7 +150,7 @@ Lower friction allows the motor to reach a higher steady-state speed, while high
 
 ## Results
 
-This project demonstrates several important aspects of DC motor dynamics:
+The simulation highlights several basic aspects of DC motor dynamics:
 
 - a constant voltage produces time-varying current and speed responses
 - angular velocity approaches a steady-state value
@@ -300,4 +300,4 @@ Possible next steps:
 
 This project simulates the dynamic behavior of a DC motor and studies how motor parameters affect current, speed, and position responses.
 
-It provides a compact foundation for later work in control, state estimation, Kalman filtering, embedded systems, and intelligent physical systems.
+It provides a compact foundation for later work in control, state estimation, Kalman filtering, and embedded motor monitoring.
